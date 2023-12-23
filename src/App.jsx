@@ -1,10 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import { getAllGames } from "./services/games";
 
 function App() {
   const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    getGames()
+  }, []);
+
+  const getGames = async () => {
+    try {
+      const games =  await getAllGames();
+      console.log("games", games)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <>
@@ -17,19 +31,12 @@ function App() {
         </a>
       </div>
       <h1>First Bank Academy Games</h1>
+      <div className="text-3xl">Coming Soon!!!</div>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
     </>
   );
 }
