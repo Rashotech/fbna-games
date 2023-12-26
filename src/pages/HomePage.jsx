@@ -1,8 +1,8 @@
-import React from react;
+import React from "react";
 
 function HomePage() {
   return (
-    <div>Hello</div>
+    <div>HomePage</div>
   );
 }
 
