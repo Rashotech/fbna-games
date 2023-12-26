@@ -5,3 +5,7 @@ export const flattenFirebaseData = (firebaseData) => {
   });
   return array;
 };
+
+export const cn = (...args) => {
+  return args.filter((arg) => Boolean(arg)).join(" ");
+};
