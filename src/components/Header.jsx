@@ -16,7 +16,7 @@ const Header = () => {
       <Container size="w-[95%] md:w-[92%]" className="flex items-center h-20">
         <div className="flex items-center space-x-1">
           <img
-            src="/firstbank-logo2.png"
+            src="/firstbank-logo.png"
             alt="first-bank logo"
             width={56}
             height={48}
@@ -26,7 +26,7 @@ const Header = () => {
           </p>
         </div>
         <div className="flex-1 flex items-center ml-0 md:ml-14 space-x-10">
-          <div className="hidden md:flex md:items-center md:flex-1">
+          <div className="hidden md:flex md:items-center md:flex-[2_1_0%]">
             <SearchBox
               className="w-full pl-14"
               placeholder="Search for games and competitions"
