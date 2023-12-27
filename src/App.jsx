@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { getAllGames } from "./services/games";
 import { publicRoutes } from "./routes";
+import Layout from "./components/Layout";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -26,12 +27,14 @@ function App() {
         <Suspense>
           <BrowserRouter>
             <Routes>
-              {publicRoutes.map(page => {
-                const { id, path, Component } = page;
-                return (
-                  <Route key={id} exact path={path} element={<Component />} />
-                );
-              })}
+              <Route element={<Layout />}>
+                {publicRoutes.map((page) => {
+                  const { id, path, Component } = page;
+                  return (
+                    <Route key={id} exact path={path} element={<Component />} />
+                  );
+                })}
+              </Route>
             </Routes>
           </BrowserRouter>
         </Suspense>
