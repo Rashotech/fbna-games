@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import Container from "./Container";
 import SearchBox from "./SearchBox";
+import { navLinks } from "../config/constants";
+import { cn } from "../utils";
 
 const Header = () => {
   const [search, setSearch] = useState("");
@@ -32,7 +35,38 @@ const Header = () => {
               onSubmit={handleSubmit}
             />
           </div>
-          <div className="hidden md:flex md:flex-1">{/* Navlinks */}</div>
+          <div className="hidden md:flex md:flex-1 md:space-x-[18px] md:items-center">
+            {navLinks.map((link) =>
+              !link.isBtn ? (
+                <NavLink
+                  key={link.path}
+                  to={link.path}
+                  className={({ isActive }) =>
+                    cn(
+                      "text-base text-primary",
+                      isActive ? "font-medium" : "font-normal"
+                    )
+                  }
+                >
+                  {link.name}
+                </NavLink>
+              ) : (
+                <div key={link.path} className="pl-7 inline-flex items-center">
+                  <NavLink
+                    to={link.path}
+                    className={({ isActive }) =>
+                      cn(
+                        "text-base text-primary bg-secondary rounded-sm px-[15px] py-[5px]",
+                        isActive ? "font-medium" : "font-normal"
+                      )
+                    }
+                  >
+                    {link.name}
+                  </NavLink>
+                </div>
+              )
+            )}
+          </div>
         </div>
         <div className="flex md:hidden">{/* Mobile Toggle Button */}</div>
       </Container>
