@@ -1,5 +1,7 @@
 export const GAMES_COLLECTION = "games";
 
+export const ELEMENTS_PER_PAGE = 9;
+
 export const navLinks = [
   { name: "Home", path: "/" },
   { name: "Games", path: "/games" },
