@@ -9,7 +9,7 @@ const HeroOverlay = () => {
     navigate("games");
   };
   return (
-    <section className="hero_overlay text-start text-[#022E64] px-4 py-10 md:px-10 md:py-14 xl:px-20 xl:py-24">
+    <section className="hero_overlay text-start text-[#022E64] px-4 py-10 md:px-10 md:py-14 xl:pl-[16rem] xl:py-24">
       <h1 className="w-[70%] text-xl text-white font-bold leading-8 mb-6 sm:text-3xl sm:mb-10 lg:text-4xl xl:text-5xl xl:w-[80%]">
         Welcome To FirstAcademy Games
       </h1>

@@ -1,7 +1,13 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    screens: {
+      xsm: "460px",
+      ...defaultTheme.screens,
+    },
     extend: {
       colors: {
         primary: "hsl(var(--primary))",
@@ -12,7 +18,6 @@ export default {
         paragraphbg: "#4E6D93",
         leadercardbg: "#B3C0D1",
         cohortcardbg: "#F1F1F1",
-
       },
     },
   },
