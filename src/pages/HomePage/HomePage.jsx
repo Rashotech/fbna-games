@@ -1,14 +1,13 @@
 import React from "react";
-import HeroSlider from "./HeroSlider";
-import HeroOverlay from "./HeroOverlay";
+import { HeroSection, About } from "./index";
 
-function HomePage() {
+const HomePage = () => {
   return (
-    <div className="w-full relative">
-      <HeroSlider />
-      <HeroOverlay/>
+    <div className="w-full">
+      <HeroSection />
+      <About />
     </div>
   );
-}
+};
 
 export default HomePage;

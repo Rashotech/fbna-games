@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import { HeroSlider, HeroOverlay} from "./index";
 
-const HeroSection = () => {
+function HeroSection() {
   return (
-    <div>HeroSection</div>
-  )
+    <div className="w-full relative">
+      <HeroSlider />
+      <HeroOverlay />
+    </div>
+  );
 }
 
-export default HeroSection
+export default HeroSection;
