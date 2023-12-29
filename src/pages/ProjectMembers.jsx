@@ -3,6 +3,7 @@ import { getProjectMembers } from "../services/teams";
 
 const ProjectMembers = () => {
   const [teamMembers, setTeamMembers] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getTeamMembers();
@@ -10,9 +11,12 @@ const ProjectMembers = () => {
 
   const getTeamMembers = async () => {
     try {
+      setLoading(true)
       const members = await getProjectMembers();
       setTeamMembers(members);
+      setLoading(false)
     } catch (error) {
+      setLoading(false)
       console.log(error);
     }
   };
