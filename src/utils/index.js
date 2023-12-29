@@ -6,15 +6,18 @@ import moment from "moment";
  * @param {Array} firebaseData - An array of Firebase data.
  * @returns {Array} - An array of flattened data.
  */
-export const flattenFirebaseData = (firebaseData) => {
+export const flattenFirebaseData = firebaseData => {
   let array = [];
-  firebaseData.forEach((element) => {
+  firebaseData.forEach(element => {
     const data = element.data();
     array.push({ ...data, id: element.id });
   });
   return array;
 };
 
+export const cn = (...args) => {
+  return args.filter(arg => Boolean(arg)).join(" ");
+};
 /**
  * Computes the status of a game based on its start and end dates.
  *
@@ -42,7 +45,7 @@ export const computeGameStatus = (startDate, endDate) => {
  * @param {Object} date - Firestore timestamp object.
  * @returns {string} - Formatted date string in "DD-MM-YYYY" format.
  */
-export const convertTimestampToDate = (date) => {
+export const convertTimestampToDate = date => {
   return moment(date.toDate()).format("DD-MM-YYYY");
 };
 
@@ -55,8 +58,8 @@ export const convertTimestampToDate = (date) => {
  * @returns {Array<T>} An array of items filtered by date range.
  */
 export const filterItemsByDateRange = (items, startDate, endDate) => {
-  const dateFormat = 'DD-MM-YYYY';
-  const filteredItems = items.filter((item) => {
+  const dateFormat = "DD-MM-YYYY";
+  const filteredItems = items.filter(item => {
     const itemStartDate = moment(item.startDate, dateFormat);
     const itemEndDate = moment(item.endDate, dateFormat);
 
