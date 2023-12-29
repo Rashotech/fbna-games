@@ -28,7 +28,7 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route element={<Layout />}>
-                {publicRoutes.map((page) => {
+                {publicRoutes.map(page => {
                   const { id, path, Component } = page;
                   return (
                     <Route key={id} exact path={path} element={<Component />} />
