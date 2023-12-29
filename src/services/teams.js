@@ -21,7 +21,7 @@ export const getProjectMembers = async () => {
     request.forEach((element) => {
       const member =  element.data();
       const image = member?.image[0]?.downloadURL;
-      result.push({ ...member, image });
+      result.push({ ...member, id: element.id, image });
     });
 
     const members = result.sort((a, b) => (a.order > b.order ? 1 : -1));
