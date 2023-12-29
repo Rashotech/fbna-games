@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { cn } from "../utils";
 
 const MainLogo = ({ className, ...props }) => {
   return (
-    <div
+    <Link
       className={cn("flex items-center space-x-2 md:space-x-2.5", className)}
       {...props}
     >
@@ -16,7 +17,7 @@ const MainLogo = ({ className, ...props }) => {
       <p className="self-end text-sm md:text-xl font-medium text-primary">
         AcademyGames
       </p>
-    </div>
+    </Link>
   );
 };
 
