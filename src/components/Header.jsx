@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Container from "./Container";
 import SearchBox from "./SearchBox";
+import MainLogo from "./MainLogo";
 import { navLinks } from "../config/constants";
 import { cn } from "../utils";
 
@@ -13,20 +14,10 @@ const Header = () => {
   return (
     <header>
       <div className="h-[50px] bg-primary" />
-      <Container size="w-[95%] md:w-[92%]" className="flex items-center h-20">
-        <div className="flex items-center space-x-1">
-          <img
-            src="/firstbank-logo2.png"
-            alt="first-bank logo"
-            width={56}
-            height={48}
-          />
-          <p className="self-end text-xl font-medium text-primary">
-            AcademyGames
-          </p>
-        </div>
-        <div className="flex-1 flex items-center ml-0 md:ml-14 space-x-10">
-          <div className="hidden md:flex md:items-center md:flex-1">
+      <Container size="w-[90%] md:w-[92%]" className="flex items-center h-20">
+        <MainLogo />
+        <div className="flex-1 h-full flex items-center ml-0 md:ml-14 space-x-10">
+          <div className="hidden md:h-full md:flex md:items-center md:flex-[2_1_0%]">
             <SearchBox
               className="w-full pl-14"
               placeholder="Search for games and competitions"
@@ -35,7 +26,7 @@ const Header = () => {
               onSubmit={handleSubmit}
             />
           </div>
-          <div className="hidden md:flex md:flex-1 md:space-x-[18px] md:items-center">
+          <div className="hidden md:h-full md:flex md:flex-1 md:space-x-[18px] md:items-center">
             {navLinks.map((link) =>
               !link.isBtn ? (
                 <NavLink
@@ -68,7 +59,7 @@ const Header = () => {
             )}
           </div>
         </div>
-        <div className="flex md:hidden">{/* Mobile Toggle Button */}</div>
+        <div className="flex md:hidden">{/* Mobile Toggle Button */}</div> 
       </Container>
     </header>
   );

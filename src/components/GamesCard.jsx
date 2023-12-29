@@ -26,7 +26,7 @@ const GamesCard = ({ name, category, id, participants, venue, image }) => {
           </div>
         </div>
         <div className="flex justify-end">
-          <GamesCardBtn href="">See More</GamesCardBtn>
+          <GamesCardBtn href={`/games/${id}`}>See More</GamesCardBtn>
         </div>
       </div>
     </div>
