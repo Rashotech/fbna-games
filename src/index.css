@@ -35,9 +35,39 @@
   }
 }
 
+@layer components {
+  /* For WebKit browsers (e.g., Chrome, Safari) */
+  .scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+  }
+
+  .scrollbar {
+    scrollbar-color: #f1f1f1 #888;
+  }
+}
+
+@media (min-width: 1024px) {
+  .slick-arrow.slick-next {
+    right: -80px !important;
+  }
+
+  .slick-arrow.slick-prev {
+    left: -80px !important;
+  }
+}
+
 #root {
   max-width: none;
   padding: 0px 0px;
   margin: 0px;
-  text-align: default;
+  text-align: left;
 }
