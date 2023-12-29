@@ -6,6 +6,8 @@
   :root {
     --primary: 213 96% 20%;
     --secondary: 45 87% 47%;
+    --navbar-height: 80px;
+    --navbar-rule-height: 50px;
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     color-scheme: light dark;
     font-synthesis: none;

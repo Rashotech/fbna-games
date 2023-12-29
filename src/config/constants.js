@@ -2,12 +2,13 @@ export const GAMES_COLLECTION = "games";
 
 export const ELEMENTS_PER_PAGE = 9;
 
+export const VISIBLE_PAGE_LINKS = 3;
+
 export const navLinks = [
   { name: "Home", path: "/" },
   { name: "Games", path: "/games" },
   { name: "Leaderboard", path: "/leaderboard" },
   { name: "Team", path: "/members" },
-  { name: "Explore", path: "/explore", isBtn: true },
 ];
 
 export const games = [
