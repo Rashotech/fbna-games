@@ -20,7 +20,7 @@ const Footer = () => {
   const year = new Date().getFullYear();
   return (
     <footer className="bg-[#003B65] pt-[33px] pb-10">
-      <Container size="w-[95%] md:w-[92%]">
+      <Container size="w-[90%] md:w-[92%]">
         <div className="w-full md:w-[97%]">
           <div className="flex items-center flex-wrap w-full -mt-3 mb-11">
             <div className="w-full py-3 md:w-1/2 flex items-center justify-center space-x-3 md:space-x-7 md:justify-start">

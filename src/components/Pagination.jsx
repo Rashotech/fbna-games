@@ -77,7 +77,7 @@ const PaginationBtn = ({ Icon, disabled, className, ...props }) => {
       disabled={disabled}
       {...props}
     >
-      <Icon />
+      <Icon className="w-[30px] h-[30px] text-primary" />
     </button>
   );
 };
