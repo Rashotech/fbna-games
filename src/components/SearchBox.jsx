@@ -22,7 +22,7 @@ const SearchBox = ({ className, onChange, value, onSubmit, ...props }) => {
       onChange={handleChange}
       onKeyUp={handleSubmit}
       className={cn(
-        "bg-[#f6f6f6] rounded-2xl pt-[11px] pb-3 placeholder:text-[#4E6D93] placeholder:text-sm placeholder:font-normal focus:outline-none focus:border-none",
+        "bg-[#f6f6f6] rounded-2xl pt-[11px] pb-3 placeholder:text-[#4E6D93] text-[#4E6D93] placeholder:text-sm placeholder:font-normal focus:outline-none focus:border-none",
         className
       )}
       {...props}

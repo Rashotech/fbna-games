@@ -4,7 +4,7 @@ import {
   GameDetails,
   Members,
   LeadershipBoard,
-} from "../pages/index";
+} from "../pages";
 
 export const publicRoutes = [
   { id: "Home", path: "/", Component: Home },
