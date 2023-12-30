@@ -11,7 +11,7 @@ const GameStatus = ({ status, className }) => {
         className="w-5 h-5 rounded-full"
         style={{ backgroundColor: color }}
       />
-      <span className="text-[#4A4A4A] text-sm font-normal">{status}</span>
+      <span className="text-grey-600 text-sm font-normal">{status}</span>
     </div>
   );
 };

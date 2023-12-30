@@ -1,13 +1,19 @@
 import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import GamesList from "../components/GamesList.jsx";
 import Pagination from "../components/Pagination.jsx";
 import usePagination from "../hooks/usePagination.js";
 import { getAllGames } from "../services/games.js";
 import useFetcher from "../hooks/useFetcher.js";
-import { games } from "../config/constants.js";
 
 const GamesPage = () => {
   const { data: games, isLoading, error } = useFetcher(getAllGames, []);
+  const { search } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [search]);
+
   const {
     currentData: paginatedGames,
     hasNext,
@@ -28,7 +34,7 @@ const GamesPage = () => {
   }
 
   return (
-    <div className="bg-[#b3c0d1]">
+    <div className="bg-pagesbg">
       <h1 className="pt-16 text-center text-2xl md:text-5xl font-bold text-primary">
         Every Game you can think of...
       </h1>

@@ -17,7 +17,7 @@ const GamesInfo = ({ image, name, venue }) => {
         <h6 className="hidden md:block md:text-black md:text-[32px] md:leading-10 md:font-bold">
           {name}
         </h6>
-        <div className="space-y-1 font-semibold text-[#4E6D93] text-sm md:text-[#4A4A4A] md:text-base md:font-medium md:space-y-2">
+        <div className="space-y-1 font-semibold text-grey-500 text-sm md:text-grey-600 md:text-base md:font-medium md:space-y-2">
           <p>
             {`Visby is a geometric typeface that was influenced by the Arctic's
             stark elegance a nd crisp air. In lowercase, it's friendly and

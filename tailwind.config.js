@@ -18,6 +18,13 @@ export default {
         paragraphbg: "#4E6D93",
         leadercardbg: "#B3C0D1",
         cohortcardbg: "#F1F1F1",
+        footerbg: "#003B65",
+        pagesbg: "#B3C0D1",
+        grey: {
+          100: "#F6F6F6",
+          500: "#4E6D93",
+          600: "#4A4A4A",
+        },
       },
     },
   },
