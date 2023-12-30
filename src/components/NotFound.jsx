@@ -13,8 +13,10 @@ const NotFound = ({
       <div className="max-w-sm space-y-2 md:space-y-0 md:flex md:item md:space-x-4">
         <div className="text-3xl text-primary font-semibold">404</div>
         <div className="flex flex-col">
-          <h1 className="text-3xl text-gray-800 font-semibold">{message}</h1>
-          <Link to={redirectTo} className="text-primary mt-4 text-sm space-x-2">
+          <h1 className="text-xl md:text-2xl text-gray-800 font-semibold">
+            {message}
+          </h1>
+          <Link to={redirectTo} className="text-primary mt-4 text-sm">
             <span>{redirectText}</span>
           </Link>
         </div>

@@ -12,6 +12,7 @@ export default {
       colors: {
         primary: "hsl(var(--primary))",
         secondary: "hsl(var(--secondary))",
+        muted: "hsl(var(--muted))",
         herobg: "#022E64",
         btnbg: "#E0AD0F",
         h2bg: "#022E64",

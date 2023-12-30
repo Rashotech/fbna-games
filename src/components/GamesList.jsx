@@ -1,9 +1,10 @@
 import React from "react";
 import GamesCard from "./GamesCard";
+import { cn } from "../utils";
 
 const GamesList = ({ games }) => {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-0 md:gap-x-20 gap-y-[42px]">
+    <GamesGrid>
       {games.map((game) => (
         <GamesCard
           id={game.id}
@@ -16,6 +17,20 @@ const GamesList = ({ games }) => {
           image={game.img}
         />
       ))}
+    </GamesGrid>
+  );
+};
+
+export const GamesGrid = ({ className, children, ...props }) => {
+  return (
+    <section
+      className={cn(
+        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-0 md:gap-x-20 gap-y-[42px]",
+        className
+      )}
+      {...props}
+    >
+      {children}
     </section>
   );
 };

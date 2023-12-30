@@ -2,12 +2,21 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import GamesList from "../components/GamesList.jsx";
 import Pagination from "../components/Pagination.jsx";
+import GameCardSkeletonList from "../components/GameCardSkeletonList.jsx";
+import NotFound from "../components/NotFound.jsx";
 import usePagination from "../hooks/usePagination.js";
 import { getAllGames } from "../services/games.js";
 import useFetcher from "../hooks/useFetcher.js";
+import FetchError from "../components/FetchError.jsx";
+import { hasData } from "../utils/index.js";
 
 const GamesPage = () => {
-  const { data: games, isLoading, error } = useFetcher(getAllGames, []);
+  const {
+    data: games,
+    isLoading,
+    error,
+    refetch,
+  } = useFetcher(getAllGames, []);
   const { search } = useLocation();
 
   useEffect(() => {
@@ -23,15 +32,7 @@ const GamesPage = () => {
     currentPage,
     totalPages,
     setPage,
-  } = usePagination(games);
-
-  if (isLoading) {
-    return <div>Games data is loading</div>;
-  }
-
-  if (error) {
-    return <div>{error}</div>;
-  }
+  } = usePagination(games ?? []);
 
   return (
     <div className="bg-pagesbg">
@@ -39,7 +40,15 @@ const GamesPage = () => {
         Every Game you can think of...
       </h1>
       <div className="w-[92%] md:w-[80%] pt-12 pb-24 mx-auto space-y-[112px]">
-        <GamesList games={paginatedGames} />
+        {isLoading && <GameCardSkeletonList />}
+        {error && (
+          <FetchError
+            error="An error occurred, could not fetch games data"
+            onRefetch={refetch}
+          />
+        )}
+        {!hasData(games) && <NotFound message="No games found" />}
+        {hasData(games) && <GamesList games={paginatedGames} />}
         <div className="flex items-center justify-center">
           <Pagination
             hasNext={hasNext}

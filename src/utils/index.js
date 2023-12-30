@@ -19,6 +19,29 @@ export const flattenFirebaseData = (firebaseData) => {
 export const cn = (...args) => {
   return args.filter((arg) => Boolean(arg)).join(" ");
 };
+
+/**
+ * Generates an array of specific length for building skeletons
+ *
+ * @param {number} size
+ * @return {Array<number>}
+ */
+export const generateSkeleton = (size) => {
+  return Array.from({ length: size }, (_, k) => k + 1);
+};
+
+export const hasData = (data) => {
+  if (typeof data !== "object ") {
+    return Boolean(data);
+  }
+
+  if (!Array.isArray(data)) {
+    data = Object.keys(data);
+  }
+
+  return Boolean(data?.length);
+};
+
 /**
  * Computes the status of a game based on its start and end dates.
  *
