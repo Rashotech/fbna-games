@@ -27,7 +27,7 @@ const ProjectMembers = () => {
   return (
     <div className="flex items-center bg-white">
       <div>
-        <p className="font-bold text-blue-900 text-4xl mt-8 ">
+        <p className="font-bold text-blue-900 text-4xl mt-8 text-center">
           Meet the Team...
         </p>
         <div className="flex flex-wrap mt-8 mx-16 font-bold">

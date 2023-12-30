@@ -14,7 +14,7 @@ const Header = ({ className, ...props }) => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
 
   return (
-    <header className={cn("relative z-10", className)}>
+    <header className={cn("relative z-10 bg-white border-b", className)}>
       <div className="h-[var(--navbar-rule-height)] bg-primary" />
       <Container
         size="w-[90%] md:w-[92%]"
@@ -30,7 +30,7 @@ const Header = ({ className, ...props }) => {
               value={searchText}
               onSubmit={onSubmit}
             />
-          </div>
+          </div> 
           <div className="hidden lg:h-full lg:flex lg:flex-1 lg:space-x-[18px] lg:items-center">
             {navLinks.map((link) => (
               <NavLink

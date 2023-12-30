@@ -9,7 +9,7 @@ const MainLogo = ({ className, ...props }) => {
       {...props}
     >
       <img
-        src="/firstbank-logo.png"
+        src="/firstbank-logo.svg"
         alt="first-bank logo"
         width={56}
         height={48}
