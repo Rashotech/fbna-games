@@ -139,3 +139,11 @@ const addSuffixToNumber = (number) => {
 
   return number + "th";
 };
+
+export const chunkArray = (array, chunkSize) => {
+  const resultArray = [];
+  for (let i = 0; i < array.length; i += chunkSize) {
+    resultArray.push(array.slice(i, i + chunkSize));
+  }
+  return resultArray;
+}
