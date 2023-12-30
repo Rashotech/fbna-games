@@ -7,7 +7,7 @@ const MobileNavMenu = ({ isMenuVisible, onClose }) => {
   return (
     <div
       className={cn(
-        "bg-transparent fixed inset-0 overflow-hidden transition-opacity duration-150",
+        "bg-transparent fixed z-50 inset-0 overflow-hidden transition-opacity duration-150",
         isMenuVisible
           ? "translate-y-0 opacity-100"
           : "-translate-y-full opacity-0"

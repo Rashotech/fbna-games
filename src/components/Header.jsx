@@ -9,12 +9,12 @@ import { navLinks } from "../config/constants";
 import { cn } from "../utils";
 import useSearchText from "../hooks/useSearchText";
 
-const Header = () => {
+const Header = ({ className, ...props }) => {
   const { searchText, onChange, onSubmit } = useSearchText("");
   const [isMenuVisible, setIsMenuVisible] = useState(false);
 
   return (
-    <header>
+    <header className={cn("relative z-10", className)}>
       <div className="h-[var(--navbar-rule-height)] bg-primary" />
       <Container
         size="w-[90%] md:w-[92%]"
