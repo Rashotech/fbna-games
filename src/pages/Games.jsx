@@ -17,7 +17,7 @@ const GamesPage = () => {
   } = usePagination(games);
   return (
     <div className="bg-[#b3c0d1]">
-      <h1 className="pt-16 text-center text-3xl md:text-5xl font-bold text-primary">
+      <h1 className="pt-16 text-center text-2xl md:text-5xl font-bold text-primary">
         Every Game you can think of...
       </h1>
       <div className="w-[92%] md:w-[80%] pt-12 pb-24 mx-auto space-y-[112px]">

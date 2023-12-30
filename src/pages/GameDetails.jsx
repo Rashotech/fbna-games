@@ -8,6 +8,7 @@ import GamesInfo from "../components/GamesInfo";
 import ParticipantDetails from "../components/ParticipantDetails";
 import GameResult from "../components/GameResult";
 import FeaturedGallery from "../components/FeaturedGallery";
+import ScrollToTopOnMount from "../components/ScrollToTopOnMount";
 
 const participants = [
   {
@@ -112,6 +113,7 @@ const GameDetails = () => {
 
   return (
     <div className="pt-14 pb-28 mb:pt-16">
+      <ScrollToTopOnMount />
       <Container size="w-[90%] md:w-[92%]">
         <GamesInfo name={game.name} image={game.image} venue={game.venue} />
         <ParticipantDetails participants={participants} className="mt-14" />

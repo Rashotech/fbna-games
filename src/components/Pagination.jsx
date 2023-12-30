@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { cn } from "../utils";
 import ChevronLeft from "./icons/ChevronLeft";
 import ChevronRight from "./icons/ChevronRight";
+import { usePaginationItem } from "../hooks/usePagination";
 
 const Pagination = ({
   totalPages,
@@ -13,7 +14,7 @@ const Pagination = ({
   setPage,
 }) => {
   return (
-    <div className="flex items-center space-x-10">
+    <div className="flex items-center space-x-7 md:space-x-10">
       <PaginationBtn
         Icon={ChevronLeft}
         disabled={!hasPrevious}
@@ -48,12 +49,9 @@ const PaginationItemList = ({
   className,
   onItemClick,
 }) => {
-  const pages = useMemo(
-    () => Array.from({ length: totalPages }, (_, k) => k + 1),
-    [totalPages]
-  );
+  const { pages } = usePaginationItem(currentPage, totalPages);
   return (
-    <div className={cn("flex items-center space-x-10", className)}>
+    <div className={cn("flex items-center space-x-7 md:space-x-10", className)}>
       {pages.map((page) => (
         <PaginationItem
           key={page}
@@ -71,13 +69,13 @@ const PaginationBtn = ({ Icon, disabled, className, ...props }) => {
   return (
     <button
       className={cn(
-        "inline-flex h-[60px] w-[60px] items-center justify-center bg-[#FCFCFC] border border-primary disabled:bg-gray-400 disabled:cursor-not-allowed",
+        "inline-flex h-[40px] md:h-[60px] w-[40px] md:w-[60px] items-center justify-center bg-[#FCFCFC] border border-primary disabled:bg-gray-400 disabled:cursor-not-allowed",
         className
       )}
       disabled={disabled}
       {...props}
     >
-      <Icon className="w-[30px] h-[30px] text-primary" />
+      <Icon className="w-[20px] md:w-[30px] h-[20px] md:h-[30px] text-primary" />
     </button>
   );
 };

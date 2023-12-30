@@ -7,6 +7,7 @@ import YoutubeIcon from "./icons/YoutubeIcon";
 import LinkedInIcon from "./icons/LinkedInIcon";
 import InstagramIcon from "./icons/InstagramIcon";
 import SocialLink from "./SocialLink";
+import useSearchText from "../hooks/useSearchText";
 
 const socials = [
   { href: "", Icon: FacebookIcon },
@@ -18,12 +19,14 @@ const socials = [
 
 const Footer = () => {
   const year = new Date().getFullYear();
+  const { onChange, onSubmit, searchText } = useSearchText();
+
   return (
     <footer className="bg-[#003B65] pt-[33px] pb-10">
       <Container size="w-[90%] md:w-[92%]">
         <div className="w-full md:w-[97%]">
           <div className="flex items-center flex-wrap w-full -mt-3 mb-11">
-            <div className="w-full py-3 md:w-1/2 flex items-center justify-center space-x-3 md:space-x-7 md:justify-start">
+            <div className="w-full py-3 md:w-1/2 flex items-center justify-center space-x-4 md:space-x-7 md:justify-start">
               <img
                 src="/firstbank-logo2.png"
                 width="80"
@@ -32,7 +35,10 @@ const Footer = () => {
               />
               <SearchBox
                 placeholder="Search for games and competitions"
-                className="pl-3 md:pl-7 max-w-[335px] flex-[1_1_auto]"
+                className="pl-3 placeholder:text-xs md:placeholder:text-sm md:pl-7 max-w-[240px] md:max-w-[335px] flex-[1_1_auto]"
+                onChange={onChange}
+                value={searchText}
+                onSubmit={onSubmit}
               />
             </div>
             <div className="w-full py-3 md:w-1/2 flex items-center justify-center space-x-5 md:justify-end">

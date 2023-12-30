@@ -1,4 +1,5 @@
 import moment from "moment";
+import { GAME_STATUS } from "../config/constants";
 
 /**
  * Flattens an array of Firebase data by extracting the 'data' property from each element.
@@ -6,9 +7,9 @@ import moment from "moment";
  * @param {Array} firebaseData - An array of Firebase data.
  * @returns {Array} - An array of flattened data.
  */
-export const flattenFirebaseData = firebaseData => {
+export const flattenFirebaseData = (firebaseData) => {
   let array = [];
-  firebaseData.forEach(element => {
+  firebaseData.forEach((element) => {
     const data = element.data();
     array.push({ ...data, id: element.id });
   });
@@ -16,7 +17,7 @@ export const flattenFirebaseData = firebaseData => {
 };
 
 export const cn = (...args) => {
-  return args.filter(arg => Boolean(arg)).join(" ");
+  return args.filter((arg) => Boolean(arg)).join(" ");
 };
 /**
  * Computes the status of a game based on its start and end dates.
@@ -31,11 +32,11 @@ export const computeGameStatus = (startDate, endDate) => {
   const _endDate = moment(endDate, "DD-MM-YYYY");
 
   if (currentDate.isBefore(_startDate)) {
-    return "yet-to-start";
+    return GAME_STATUS.NOT_STARTED;
   } else if (currentDate.isAfter(_endDate)) {
-    return "ended";
+    return GAME_STATUS.ENDED;
   } else {
-    return "in-progress";
+    return GAME_STATUS.IN_PROGRESS;
   }
 };
 
@@ -45,7 +46,7 @@ export const computeGameStatus = (startDate, endDate) => {
  * @param {Object} date - Firestore timestamp object.
  * @returns {string} - Formatted date string in "DD-MM-YYYY" format.
  */
-export const convertTimestampToDate = date => {
+export const convertTimestampToDate = (date) => {
   return moment(date.toDate()).format("DD-MM-YYYY");
 };
 
@@ -59,7 +60,7 @@ export const convertTimestampToDate = date => {
  */
 export const filterItemsByDateRange = (items, startDate, endDate) => {
   const dateFormat = "DD-MM-YYYY";
-  const filteredItems = items.filter(item => {
+  const filteredItems = items.filter((item) => {
     const itemStartDate = moment(item.startDate, dateFormat);
     const itemEndDate = moment(item.endDate, dateFormat);
 

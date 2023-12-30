@@ -3,63 +3,61 @@ import { NavLink } from "react-router-dom";
 import Container from "./Container";
 import SearchBox from "./SearchBox";
 import MainLogo from "./MainLogo";
+import MobileMenu from "./MobileMenu";
+import ActionLink from "./ActionLink";
 import { navLinks } from "../config/constants";
 import { cn } from "../utils";
+import useSearchText from "../hooks/useSearchText";
 
-const Header = () => {
-  const [search, setSearch] = useState("");
-
-  const handleSubmit = () => {};
+const Header = ({ className, ...props }) => {
+  const { searchText, onChange, onSubmit } = useSearchText("");
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
 
   return (
-    <header>
-      <div className="h-[50px] bg-primary" />
-      <Container size="w-[90%] md:w-[92%]" className="flex items-center h-20">
-        <MainLogo />
-        <div className="flex-1 h-full flex items-center ml-0 md:ml-14 space-x-10">
-          <div className="hidden md:h-full md:flex md:items-center md:flex-[2_1_0%]">
+    <header className={cn("relative z-10", className)}>
+      <div className="h-[var(--navbar-rule-height)] bg-primary" />
+      <Container
+        size="w-[90%] md:w-[92%]"
+        className="flex items-center h-[var(--navbar-height)]"
+      >
+        <MainLogo to="/" />
+        <div className="flex-1 h-full flex items-center ml-0 space-x-10 lg:ml-14">
+          <div className="hidden lg:h-full lg:flex lg:items-center lg:flex-[2_1_0%]">
             <SearchBox
               className="w-full pl-14"
               placeholder="Search for games and competitions"
-              onChange={(evt) => setSearch(evt.target.value)}
-              value={search}
-              onSubmit={handleSubmit}
+              onChange={onChange}
+              value={searchText}
+              onSubmit={onSubmit}
             />
           </div>
-          <div className="hidden md:h-full md:flex md:flex-1 md:space-x-[18px] md:items-center">
-            {navLinks.map((link) =>
-              !link.isBtn ? (
-                <NavLink
-                  key={link.path}
-                  to={link.path}
-                  className={({ isActive }) =>
-                    cn(
-                      "text-base text-primary",
-                      isActive ? "font-medium" : "font-normal"
-                    )
-                  }
-                >
-                  {link.name}
-                </NavLink>
-              ) : (
-                <div key={link.path} className="pl-7 inline-flex items-center">
-                  <NavLink
-                    to={link.path}
-                    className={({ isActive }) =>
-                      cn(
-                        "text-base text-primary bg-secondary rounded-sm px-[15px] py-[5px]",
-                        isActive ? "font-medium" : "font-normal"
-                      )
-                    }
-                  >
-                    {link.name}
-                  </NavLink>
-                </div>
-              )
-            )}
+          <div className="hidden lg:h-full lg:flex lg:flex-1 lg:space-x-[18px] lg:items-center">
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.path}
+                to={link.path}
+                className={({ isActive }) =>
+                  cn(
+                    "text-base text-primary",
+                    isActive ? "font-medium" : "font-normal"
+                  )
+                }
+              >
+                {link.name}
+              </NavLink>
+            ))}
+            <div className="pl-7 inline-flex items-center">
+              <ActionLink href="/games">Explore</ActionLink>
+            </div>
           </div>
         </div>
-        <div className="flex md:hidden">{/* Mobile Toggle Button */}</div> 
+        <div className="flex lg:hidden">
+          <MobileMenu
+            isMenuVisible={isMenuVisible}
+            onOpen={() => setIsMenuVisible(true)}
+            onClose={() => setIsMenuVisible(false)}
+          />
+        </div>
       </Container>
     </header>
   );
