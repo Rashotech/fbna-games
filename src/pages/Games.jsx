@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import GamesList from "../components/GamesList.jsx";
 import Pagination from "../components/Pagination.jsx";
 import usePagination from "../hooks/usePagination.js";
+import { getAllGames } from "../services/games.js";
+import useFetcher from "../hooks/useFetcher.js";
 import { games } from "../config/constants.js";
 
 const GamesPage = () => {
+  const { data: games, isLoading, error } = useFetcher(getAllGames, []);
   const {
     currentData: paginatedGames,
     hasNext,
@@ -15,6 +18,15 @@ const GamesPage = () => {
     totalPages,
     setPage,
   } = usePagination(games);
+
+  if (isLoading) {
+    return <div>Games data is loading</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
   return (
     <div className="bg-[#b3c0d1]">
       <h1 className="pt-16 text-center text-2xl md:text-5xl font-bold text-primary">
