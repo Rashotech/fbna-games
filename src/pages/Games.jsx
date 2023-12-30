@@ -16,7 +16,7 @@ const GamesPage = () => {
     isLoading,
     error,
     refetch,
-  } = useFetcher(getAllGames, []);
+  } = useFetcher(getAllGames, null, { initialData: [] });
   const { search } = useLocation();
 
   useEffect(() => {

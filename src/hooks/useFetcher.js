@@ -35,16 +35,25 @@ const reducer = (state, action) => {
   }
 };
 
-const useFetcher = (fetcher, initialData = null, loadingState = true) => {
+const useFetcher = (
+  fetcher,
+  fetcherArguments,
+  { initialData = null, initialState = true } = {}
+) => {
   const [{ isLoading, error, data }, dispatch] = useReducer(reducer, {
     ...initialState,
-    isLoading: loadingState,
+    isLoading: initialState,
     data: initialData,
   });
 
   const fetchData = useCallback(async () => {
     try {
-      const data = await fetcher();
+      const args = [
+        ...(Array.isArray(fetcherArguments)
+          ? fetcherArguments
+          : [fetcherArguments]),
+      ];
+      const data = await fetcher(...args);
       dispatch({ type: ACTIONS.SET_DATA, payload: data });
       console.log("The fetched data is ", data);
     } catch (error) {
@@ -53,7 +62,7 @@ const useFetcher = (fetcher, initialData = null, loadingState = true) => {
         payload: error.message ?? "An error occurred, please try again",
       });
     }
-  }, [fetcher]);
+  }, [fetcher, fetcherArguments]);
 
   const refetch = useCallback(async () => {
     dispatch({ type: ACTIONS.RESET });
