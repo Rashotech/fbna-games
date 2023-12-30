@@ -4,6 +4,18 @@ export const ELEMENTS_PER_PAGE = 9;
 
 export const VISIBLE_PAGE_LINKS = 3;
 
+export const GAME_STATUS = {
+  IN_PROGRESS: "In-Progress",
+  ENDED: "Ended",
+  NOT_STARTED: "Yet-to-Start",
+};
+
+export const GAME_STATUS_COLORS = {
+  [GAME_STATUS.IN_PROGRESS]: "#F0E93C",
+  [GAME_STATUS.ENDED]: "#F03C3C",
+  [GAME_STATUS.NOT_STARTED]: "#3CF059",
+};
+
 export const navLinks = [
   { name: "Home", path: "/" },
   { name: "Games", path: "/games" },
@@ -19,6 +31,7 @@ export const games = [
     participants: 4,
     venue: "Conference Hall",
     name: "Bottle Flipping",
+    status: GAME_STATUS.ENDED,
   },
   {
     image: "/chess.png",
@@ -27,6 +40,7 @@ export const games = [
     participants: 4,
     venue: "Conference Hall",
     name: "Chess",
+    status: GAME_STATUS.ENDED,
   },
   {
     image: "/dictionary.png",
@@ -35,6 +49,7 @@ export const games = [
     participants: 8,
     venue: "Conference Hall",
     name: "Dictionary",
+    status: GAME_STATUS.IN_PROGRESS,
   },
   {
     image: "/fifa.png",
@@ -43,6 +58,7 @@ export const games = [
     participants: 4,
     venue: "Conference Hall",
     name: "Fifa",
+    status: GAME_STATUS.NOT_STARTED,
   },
   {
     image: "/football.png",
@@ -51,6 +67,7 @@ export const games = [
     participants: 8,
     venue: "TBD",
     name: "Football",
+    status: GAME_STATUS.IN_PROGRESS,
   },
   {
     image: "/karaoke.png",
@@ -59,6 +76,7 @@ export const games = [
     participants: 4,
     venue: "Conference Hall",
     name: "Karaoke",
+    status: GAME_STATUS.IN_PROGRESS,
   },
   {
     image: "/race.png",
@@ -67,6 +85,7 @@ export const games = [
     participants: 16,
     venue: "TBD",
     name: "Race",
+    status: GAME_STATUS.NOT_STARTED,
   },
   {
     image: "/scrabble.png",
@@ -75,6 +94,7 @@ export const games = [
     participants: 8,
     venue: "Conference Hall",
     name: "Scrabble",
+    status: GAME_STATUS.NOT_STARTED,
   },
   {
     image: "/swimming.png",
@@ -83,6 +103,7 @@ export const games = [
     participants: 8,
     venue: "Academy Pool",
     name: "Swimming",
+    status: GAME_STATUS.ENDED,
   },
   {
     image: "/football.png",
@@ -91,6 +112,7 @@ export const games = [
     participants: 8,
     venue: "TBD",
     name: "Soccer",
+    status: GAME_STATUS.ENDED,
   },
   {
     image: "/karaoke.png",
@@ -99,6 +121,7 @@ export const games = [
     participants: 6,
     venue: "Conference Hall",
     name: "Singing",
+    status: GAME_STATUS.ENDED,
   },
   {
     image: "/race.png",
@@ -107,6 +130,7 @@ export const games = [
     participants: 16,
     venue: "TBD",
     name: "Relay",
+    status: GAME_STATUS.IN_PROGRESS,
   },
   {
     image: "/scrabble.png",
@@ -115,6 +139,7 @@ export const games = [
     participants: 8,
     venue: "Conference Hall",
     name: "Scrabble",
+    status: GAME_STATUS.IN_PROGRESS,
   },
   {
     image: "/swimming.png",
@@ -123,6 +148,7 @@ export const games = [
     participants: 8,
     venue: "Academy Pool",
     name: "Water Hockey",
+    status: GAME_STATUS.IN_PROGRESS,
   },
   {
     image: "/bottle.png",
@@ -131,6 +157,7 @@ export const games = [
     participants: 4,
     venue: "Conference Hall",
     name: "Drinker",
+    status: GAME_STATUS.ENDED,
   },
   {
     image: "/chess.png",
@@ -139,6 +166,7 @@ export const games = [
     participants: 4,
     venue: "Conference Hall",
     name: "Chess",
+    status: GAME_STATUS.NOT_STARTED,
   },
   {
     image: "/dictionary.png",
@@ -147,6 +175,7 @@ export const games = [
     participants: 8,
     venue: "Conference Hall",
     name: "Dictionary",
+    status: GAME_STATUS.NOT_STARTED,
   },
   {
     image: "/fifa.png",
@@ -155,6 +184,7 @@ export const games = [
     participants: 4,
     venue: "Conference Hall",
     name: "Play Station",
+    status: GAME_STATUS.IN_PROGRESS,
   },
   {
     image: "/football.png",
@@ -163,6 +193,7 @@ export const games = [
     participants: 8,
     venue: "TBD",
     name: "Women Football",
+    status: GAME_STATUS.ENDED,
   },
 ];
 export const PROJECT_MEMBERS_COLLECTION = "project-members";
