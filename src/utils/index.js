@@ -115,9 +115,9 @@ export const filterItemsByDateRange = (items, startDate, endDate) => {
  *
  * @param {Array<Result>} results
  */
-export const sortGameResultsByScore = (results) => {
+export const sortGameResultsByPoints = (results) => {
   return results
-    .sort((a, b) => b.score - a.score)
+    .sort((a, b) => b.point - a.point)
     .map((result, index) => ({
       ...result,
       position: addSuffixToNumber(index + 1),
