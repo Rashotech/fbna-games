@@ -6,7 +6,9 @@ import { db } from "../config/firebase";
  * Retrieves all Project Members the database.
  * 
  * @typedef {object} Gallery
+ * @property {string} id Gallery ID
  * @property {string} image Image URL
+ * @property {string} order Order
  * 
  * @returns {Promise<Array<Gallery>>} An array of images
  * @throws {Error} Throws an error if there's an issue with the retrieval process.
@@ -19,10 +21,11 @@ export const getGallery = async () => {
     request.forEach((element) => {
       const gallery =  element.data();
       const image = gallery?.image[0]?.downloadURL;
-      result.push(image);
-    });
+      result.push({ ...gallery, id: element.id, image });
+    }); 
 
-    return result;
+    const images = result.sort((a, b) => (a.order > b.order ? 1 : -1));
+    return images;
   } catch (error) {
     console.log(error);
     throw Error(error);
