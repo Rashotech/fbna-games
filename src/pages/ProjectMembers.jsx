@@ -25,16 +25,12 @@ const ProjectMembers = () => {
   };
 
   return (
-    <div className="flex items-center bg-white">
-      <div>
-        <p className="font-bold text-blue-900 text-4xl mt-8 ">
-          Meet the Team...
-        </p>
-        <div className="flex flex-wrap mt-8 mx-16 font-bold">
-          {teamMembers.map((member) => (
-            <TeamCard key={member.id} member={member} />
-          ))}
-        </div>
+    <div className="bg-white">
+      <p className="font-bold text-blue-900 text-4xl mb-8 ">Meet the Team...</p>
+      <div className="flex flex-wrap justify-center gap-20 items-center font-bold">
+        {teamMembers.map((member) => (
+          <TeamCard key={member.id} member={member} />
+        ))}
       </div>
     </div>
   );
