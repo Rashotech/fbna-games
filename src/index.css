@@ -8,6 +8,7 @@
     --secondary: 45 87% 47%;
     --navbar-height: 80px;
     --navbar-rule-height: 50px;
+    --muted: 210 40% 96.1%;
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     color-scheme: light dark;
     font-synthesis: none;
@@ -54,6 +55,19 @@
 
   .scrollbar {
     scrollbar-color: #f1f1f1 #888;
+  }
+
+  .card-title {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+    overflow: hidden;
+    max-height: 4rem;
+    line-height: 2rem;
+    text-overflow: ellipsis;
   }
 }
 

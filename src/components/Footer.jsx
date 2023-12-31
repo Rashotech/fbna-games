@@ -22,7 +22,7 @@ const Footer = () => {
   const { onChange, onSubmit, searchText } = useSearchText();
 
   return (
-    <footer className="bg-[#003B65] pt-[33px] pb-10">
+    <footer className="bg-footerbg pt-[33px] pb-10">
       <Container size="w-[90%] md:w-[92%]">
         <div className="w-full md:w-[97%]">
           <div className="flex items-center flex-wrap w-full -mt-3 mb-11">
@@ -52,7 +52,7 @@ const Footer = () => {
             </div>
           </div>
           <hr className="h-0.5 block bg-secondary border-0 mb-4" />
-          <p className="text-center font-light text-xs text-[#F6F6F6]">
+          <p className="text-center font-light text-xs text-grey-100">
             @{year}. First Academy Tech Games 2.0
           </p>
         </div>

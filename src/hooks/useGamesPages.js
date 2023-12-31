@@ -1,12 +1,12 @@
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useLocation } from "react-router-dom";
 
 const useGamesPages = (initialPage = 1) => {
   const [searchParams, setSearchParams] = useSearchParams({
     page: initialPage,
   });
 
-  const page = searchParams.get("page");
-  const parsedPage = parseInt(page);
+  let parsedPage = parseInt(searchParams.get("page"));
+  parsedPage = isNaN(parsedPage) ? initialPage : parsedPage;
 
   const setPage = (page) => {
     setSearchParams({ page });
