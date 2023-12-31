@@ -4,7 +4,7 @@ const reload = () => {
 
 const FetchError = ({ error, className, onRefetch = reload }) => {
   return (
-    <div className="h-40vh flex flex-col items-center justify-center space-y-4 py-2 md:h-30vh">
+    <div className="h-[50vh] flex flex-col items-center justify-center space-y-4 py-2 md:h-[40vh]">
       <p className="text-grey-600 text-base text-center font-medium md:text-xl">
         {error}
       </p>
