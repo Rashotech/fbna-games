@@ -21,6 +21,7 @@ export const navLinks = [
   { name: "Games", path: "/games" },
   { name: "Leaderboard", path: "/leaderboard" },
   { name: "Team", path: "/members" },
+  { name: "Gallery", path: "/gallery" },
 ];
 
 export const games = [

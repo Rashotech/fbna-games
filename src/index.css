@@ -119,3 +119,13 @@ margin:0 0 14px 10px;
   margin-top: -5rem;
   background-color: #E0AD0F;
 }
+
+.bottom_long_image:hover,
+.bottom_corner_image:hover,
+.side_long_image:hover,
+.small_image:hover {
+  transform: scale(1.5); /* Scale up by 10% on hover */
+  transition: transform 0.3s ease-in-out; 
+  border-radius: 20px;
+  overflow: hidden;
+}

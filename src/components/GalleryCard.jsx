@@ -11,7 +11,7 @@ const GalleryCard = ({ images }) => {
           <div class="small_image overflow-hidden">
             <img
               class="w-full h-full object-cover"
-              src={images[0]}
+              src={images[0].image}
               alt="Your Image"
             />
           </div>
@@ -20,7 +20,7 @@ const GalleryCard = ({ images }) => {
           <div class="small_image overflow-hidden">
             <img
               class="w-full h-full object-cover"
-              src={images[1]}
+              src={images[1].image}
               alt="Your Image"
             />
           </div>
@@ -29,7 +29,7 @@ const GalleryCard = ({ images }) => {
           <div class="small_image overflow-hidden">
             <img
               class="w-full h-full object-cover"
-              src={images[2]}
+              src={images[2].image}
               alt="Your Image"
             />
           </div>
@@ -38,7 +38,7 @@ const GalleryCard = ({ images }) => {
           <div class="bottom_long_image overflow-hidden">
             <img
               class="w-full h-full object-cover"
-              src={images[3]}
+              src={images[3].image}
               alt="Your Image"
             />
           </div>
@@ -47,7 +47,7 @@ const GalleryCard = ({ images }) => {
           <div class="bottom_corner_image overflow-hidden">
             <img
               class="w-full h-full object-cover"
-              src={images[3]}
+              src={images[4].image}
               alt="Your Image"
             />
           </div>
@@ -58,7 +58,7 @@ const GalleryCard = ({ images }) => {
         <div class="side_long_image overflow-hidden">
           <img
             class="w-full h-full object-cover"
-            src={images[5]}
+            src={images[5].image}
             alt="Your Image"
           />
         </div>
