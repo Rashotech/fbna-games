@@ -25,8 +25,6 @@ const GameDetails = () => {
     isLoading,
   } = useFetcher(getSingleGame, id);
 
-  console.log(game);
-
   if (error) {
     if (error.includes("not exist")) {
       return (
