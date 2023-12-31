@@ -6,6 +6,7 @@ export default {
   theme: {
     screens: {
       xsm: "460px",
+      zsm: "530px",
       ...defaultTheme.screens,
     },
     extend: {
