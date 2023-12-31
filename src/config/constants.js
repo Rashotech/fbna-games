@@ -1,1 +1,202 @@
 export const GAMES_COLLECTION = "games";
+
+export const ELEMENTS_PER_PAGE = 9;
+
+export const VISIBLE_PAGE_LINKS = 3;
+
+export const GAME_STATUS = {
+  IN_PROGRESS: "In-Progress",
+  ENDED: "Ended",
+  NOT_STARTED: "Yet-to-Start",
+};
+
+export const GAME_STATUS_COLORS = {
+  [GAME_STATUS.IN_PROGRESS]: "#F0E93C",
+  [GAME_STATUS.ENDED]: "#F03C3C",
+  [GAME_STATUS.NOT_STARTED]: "#3CF059",
+};
+
+export const navLinks = [
+  { name: "Home", path: "/" },
+  { name: "Games", path: "/games" },
+  { name: "Leaderboard", path: "/leaderboard" },
+  { name: "Team", path: "/members" },
+  { name: "Gallery", path: "/gallery" },
+];
+
+export const games = [
+  {
+    image: "/bottle.png",
+    id: 1,
+    category: "Indoor Game",
+    participants: 4,
+    venue: "Conference Hall",
+    name: "Bottle Flipping",
+    status: GAME_STATUS.ENDED,
+  },
+  {
+    image: "/chess.png",
+    id: 2,
+    category: "Indoor Game",
+    participants: 4,
+    venue: "Conference Hall",
+    name: "Chess",
+    status: GAME_STATUS.ENDED,
+  },
+  {
+    image: "/dictionary.png",
+    id: 3,
+    category: "Indoor Game",
+    participants: 8,
+    venue: "Conference Hall",
+    name: "Dictionary",
+    status: GAME_STATUS.IN_PROGRESS,
+  },
+  {
+    image: "/fifa.png",
+    id: 4,
+    category: "Indoor Game",
+    participants: 4,
+    venue: "Conference Hall",
+    name: "Fifa",
+    status: GAME_STATUS.NOT_STARTED,
+  },
+  {
+    image: "/football.png",
+    id: 5,
+    category: "Outdoor Game",
+    participants: 8,
+    venue: "TBD",
+    name: "Football",
+    status: GAME_STATUS.IN_PROGRESS,
+  },
+  {
+    image: "/karaoke.png",
+    id: 6,
+    category: "Indoor Game",
+    participants: 4,
+    venue: "Conference Hall",
+    name: "Karaoke",
+    status: GAME_STATUS.IN_PROGRESS,
+  },
+  {
+    image: "/race.png",
+    id: 7,
+    category: "Outdoor Game",
+    participants: 16,
+    venue: "TBD",
+    name: "Race",
+    status: GAME_STATUS.NOT_STARTED,
+  },
+  {
+    image: "/scrabble.png",
+    id: 9,
+    category: "Indoor Game",
+    participants: 8,
+    venue: "Conference Hall",
+    name: "Scrabble",
+    status: GAME_STATUS.NOT_STARTED,
+  },
+  {
+    image: "/swimming.png",
+    id: 10,
+    category: "Outdoor Game",
+    participants: 8,
+    venue: "Academy Pool",
+    name: "Swimming",
+    status: GAME_STATUS.ENDED,
+  },
+  {
+    image: "/football.png",
+    id: 11,
+    category: "Outdoor Game",
+    participants: 8,
+    venue: "TBD",
+    name: "Soccer",
+    status: GAME_STATUS.ENDED,
+  },
+  {
+    image: "/karaoke.png",
+    id: 12,
+    category: "Indoor Game",
+    participants: 6,
+    venue: "Conference Hall",
+    name: "Singing",
+    status: GAME_STATUS.ENDED,
+  },
+  {
+    image: "/race.png",
+    id: 13,
+    category: "Outdoor Game",
+    participants: 16,
+    venue: "TBD",
+    name: "Relay",
+    status: GAME_STATUS.IN_PROGRESS,
+  },
+  {
+    image: "/scrabble.png",
+    id: 14,
+    category: "Indoor Game",
+    participants: 8,
+    venue: "Conference Hall",
+    name: "Scrabble",
+    status: GAME_STATUS.IN_PROGRESS,
+  },
+  {
+    image: "/swimming.png",
+    id: 15,
+    category: "Outdoor Game",
+    participants: 8,
+    venue: "Academy Pool",
+    name: "Water Hockey",
+    status: GAME_STATUS.IN_PROGRESS,
+  },
+  {
+    image: "/bottle.png",
+    id: 16,
+    category: "Indoor Game",
+    participants: 4,
+    venue: "Conference Hall",
+    name: "Drinker",
+    status: GAME_STATUS.ENDED,
+  },
+  {
+    image: "/chess.png",
+    id: 17,
+    category: "Indoor Game",
+    participants: 4,
+    venue: "Conference Hall",
+    name: "Chess",
+    status: GAME_STATUS.NOT_STARTED,
+  },
+  {
+    image: "/dictionary.png",
+    id: 18,
+    category: "Indoor Game",
+    participants: 8,
+    venue: "Conference Hall",
+    name: "Dictionary",
+    status: GAME_STATUS.NOT_STARTED,
+  },
+  {
+    image: "/fifa.png",
+    id: 19,
+    category: "Indoor Game",
+    participants: 4,
+    venue: "Conference Hall",
+    name: "Play Station",
+    status: GAME_STATUS.IN_PROGRESS,
+  },
+  {
+    image: "/football.png",
+    id: 20,
+    category: "Outdoor Game",
+    participants: 8,
+    venue: "TBD",
+    name: "Women Football",
+    status: GAME_STATUS.ENDED,
+  },
+];
+export const PROJECT_MEMBERS_COLLECTION = "project-members";
+export const FEATURED_PLAYERS_COLLECTION = "featured-players";
+export const GALLERY_COLLECTION = "gallery";
