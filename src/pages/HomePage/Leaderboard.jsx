@@ -16,7 +16,7 @@ const Leaderboard = () => {
 
   return (
     <div className="mb-5">
-      <h1 className="text-center text-3xl font-bold mt-4 mb-10">
+      <h1 className="text-center text-herobg text-3xl font-bold mt-4 mb-10">
         Games Leaderboard
       </h1>
       {isLoading && (
