@@ -2,9 +2,11 @@ import React from "react";
 import GameDetailsTitle from "./GamesDetailsTitle";
 import GamesDetailsCard from "./GamesDetailsCard";
 import { Table, TableData, TableHead, TableRow } from "./Table";
-import { cn } from "../utils";
+import { cn, formatCohortName, sortGameResultsByPoints } from "../utils";
 
 const GameResult = ({ results, className }) => {
+  results = sortGameResultsByPoints(results);
+
   return (
     <div className={cn("space-y-4", className)}>
       <GameDetailsTitle>Game Result</GameDetailsTitle>
@@ -24,13 +26,13 @@ const GameResult = ({ results, className }) => {
                 className="text-grey-600 even:bg-primary/40"
               >
                 <TableData className="w-1/3 md:w-1/4">
-                  {result.cohort}
+                  {formatCohortName(result.cohort)}
                 </TableData>
                 <TableData className="w-1/3 md:w-1/4">
-                  {result.points}
+                  {result.point ?? "NIL"}
                 </TableData>
                 <TableData className="w-1/3 md:w-1/4">
-                  {result.position}
+                  {result.position ?? "NIL"}
                 </TableData>
               </TableRow>
             ))}

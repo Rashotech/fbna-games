@@ -55,7 +55,6 @@ const useFetcher = (
       ];
       const data = await fetcher(...args);
       dispatch({ type: ACTIONS.SET_DATA, payload: data });
-      console.log("The fetched data is ", data);
     } catch (error) {
       dispatch({
         type: ACTIONS.SET_ERROR,

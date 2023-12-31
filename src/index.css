@@ -56,6 +56,19 @@
   .scrollbar {
     scrollbar-color: #f1f1f1 #888;
   }
+
+  .card-title {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+    overflow: hidden;
+    max-height: 4rem;
+    line-height: 2rem;
+    text-overflow: ellipsis;
+  }
 }
 
 @media (min-width: 1024px) {

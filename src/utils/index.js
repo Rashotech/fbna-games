@@ -42,6 +42,10 @@ export const hasData = (data) => {
   return Boolean(data?.length);
 };
 
+export const formatCohortName = (cohort) => {
+  return `Cohort ${cohort}`;
+};
+
 /**
  * Computes the status of a game based on its start and end dates.
  *
@@ -98,4 +102,40 @@ export const filterItemsByDateRange = (items, startDate, endDate) => {
   });
 
   return filteredItems;
+};
+
+/**
+ * Sort game results in descending order by points
+ *
+ * @typedef Result
+ * @property {string} cohort
+ * @property {number} score
+ * @property {number} point
+ *
+ *
+ * @param {Array<Result>} results
+ */
+export const sortGameResultsByPoints = (results) => {
+  return results
+    .sort((a, b) => b.point - a.point)
+    .map((result, index) => ({
+      ...result,
+      position: addSuffixToNumber(index + 1),
+    }));
+};
+
+const addSuffixToNumber = (number) => {
+  let j = number % 10,
+    k = number % 10;
+  if (j === 1 && k !== 11) {
+    return number + "st";
+  }
+  if (j === 2 && k !== 12) {
+    return number + "nd";
+  }
+  if (j === 3 && k !== 13) {
+    return number + "rd";
+  }
+
+  return number + "th";
 };
