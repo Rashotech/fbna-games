@@ -5,8 +5,12 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
+      i12: "390px",
+      i20: "412px",
       xsm: "460px",
       zsm: "530px",
+      ipad: "820px",
+      pro: "912px",
       ...defaultTheme.screens,
     },
     extend: {

@@ -3,8 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
-import "../../App.css"
-import { images_arr } from "../../assets/data";
+import "../../../App.css";
+import { images_arr } from "../../../assets/data";
 
 const HeroSlider = () => {
   return (
