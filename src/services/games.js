@@ -1,9 +1,4 @@
-import {
-  collection,
-  getDocs,
-  doc,
-  getDoc,
-} from "firebase/firestore";
+import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 import { GAMES_COLLECTION } from "../config/constants";
 import { db } from "../config/firebase";
 import {
@@ -112,11 +107,11 @@ export const extractAndRefineGameData = (id, game) => {
     const startDate = convertTimestampToDate(game.startDate);
     const endDate = convertTimestampToDate(game.endDate);
     const img = game?.img[0]?.downloadURL;
-    const images = game.images.map((image) => image?.downloadURL);
-    const participants = game.participants.sort((a, b) =>
+    const images = game.images?.map((image) => image?.downloadURL);
+    const participants = game.participants?.sort((a, b) =>
       a.cohort > b.cohort ? 1 : -1
     );
-    const result = game.result.sort((a, b) => (a.cohort > b.cohort ? 1 : -1));
+    const result = game.result?.sort((a, b) => (a.cohort > b.cohort ? 1 : -1));
     const status = computeGameStatus(startDate, endDate);
 
     return {

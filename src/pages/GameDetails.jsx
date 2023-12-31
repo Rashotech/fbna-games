@@ -112,7 +112,7 @@ const GameDetails = () => {
   }
 
   return (
-    <div className="pt-14 pb-28 mb:pt-16">
+    <div className="pt-14 pb-28 bg-white mb:pt-16">
       <ScrollToTopOnMount />
       <Container size="w-[90%] md:w-[92%]">
         <GamesInfo name={game.name} image={game.image} venue={game.venue} />

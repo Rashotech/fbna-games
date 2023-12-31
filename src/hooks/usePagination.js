@@ -53,8 +53,11 @@ export const usePaginationItem = (
   visiblePages = VISIBLE_PAGE_LINKS
 ) => {
   const [pages, setPages] = useState([]);
-  const [hasNext, setHasNext] = useState(false);
-  const [hasPrevious, setHasPrevious] = useState(false);
+
+  const isCurrentPageVisible = useMemo(
+    () => pages.includes(currentPage),
+    [pages, currentPage]
+  );
 
   useEffect(() => {
     // Ensure currentPage is within bounds
@@ -63,34 +66,35 @@ export const usePaginationItem = (
       totalPages
     );
 
-    // Calculate start and end indices of visible pages
-    const halfVisible = Math.floor(visiblePages / 2);
-    let start = normalizedCurrentPage - halfVisible;
-    let end = normalizedCurrentPage + halfVisible;
+    if (!isCurrentPageVisible) {
+      // Calculate start and end indices of visible pages
+      const halfVisible = Math.floor(visiblePages / 2);
+      let start = normalizedCurrentPage - halfVisible;
+      let end = normalizedCurrentPage + halfVisible;
 
-    // Adjust start and end indices to stay within bounds
-    if (start < 1) {
-      start = 1;
-      end = Math.min(visiblePages, totalPages);
+      // Adjust start and end indices to stay within bounds
+      if (start < 1) {
+        start = 1;
+        end = Math.min(visiblePages, totalPages);
+      }
+
+      if (end > totalPages) {
+        end = totalPages;
+        start = Math.max(1, end - visiblePages + 1);
+      }
+
+      // Generate the array of visible pages
+      const pageArray = Array.from(
+        { length: end - start + 1 },
+        (_, i) => start + i
+      );
+
+      // Update state
+      setPages(pageArray);
     }
+  }, [currentPage, totalPages, visiblePages, isCurrentPageVisible]);
 
-    if (end > totalPages) {
-      end = totalPages;
-      start = Math.max(1, end - visiblePages + 1);
-    }
-
-    // Generate the array of visible pages
-    const pageArray = !pages.includes(normalizedCurrentPage)
-      ? Array.from({ length: end - start + 1 }, (_, i) => start + i)
-      : pages;
-
-    // Update state
-    setPages(pageArray);
-    setHasNext(normalizedCurrentPage < totalPages);
-    setHasPrevious(normalizedCurrentPage > 1);
-  }, [currentPage, totalPages, visiblePages, pages]);
-
-  return { pages, hasNext, hasPrevious };
+  return { pages };
 };
 
 export default usePagination;
