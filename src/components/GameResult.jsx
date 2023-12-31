@@ -2,10 +2,10 @@ import React from "react";
 import GameDetailsTitle from "./GamesDetailsTitle";
 import GamesDetailsCard from "./GamesDetailsCard";
 import { Table, TableData, TableHead, TableRow } from "./Table";
-import { cn, formatCohortName, sortGameResultsByScore } from "../utils";
+import { cn, formatCohortName, sortGameResultsByPoints } from "../utils";
 
 const GameResult = ({ results, className }) => {
-  results = sortGameResultsByScore(results);
+  results = sortGameResultsByPoints(results);
 
   return (
     <div className={cn("space-y-4", className)}>
