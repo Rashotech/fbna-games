@@ -7,9 +7,9 @@ const FeaturedCard = ({ src, name, cohort }) => {
         <img src={src} alt="" className="w-[100%] rounded-l-md rounded-r-md" />
       </div>
       <div className="absolute z-10 bottom-0 right-0 w-[100%] p-3 text-orange-500 text-right bg-white/90">
-        <p className="text-md text-herobg font-light">{name}</p>
-        <span className="text-sm">{cohort}</span>
-          </div>
+        <p className="text-md text-herobg font-bold">{name}</p>
+        <span className="text-sm">Cohort {cohort}</span>
+      </div>
     </div>
   );
 };
