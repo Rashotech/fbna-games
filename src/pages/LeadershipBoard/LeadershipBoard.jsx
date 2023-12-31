@@ -14,7 +14,7 @@ const LeadershipBoard = () => {
     initialState: true,
   });
   return (
-    <section className="my-10">
+    <section className="py-10 bg-white">
       <h1 className="text-herobg text-lg font-bold text-center sm:text-2xl lg:text-3xl">
         See Who's Winning...
       </h1>
