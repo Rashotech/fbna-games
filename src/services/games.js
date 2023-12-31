@@ -1,9 +1,4 @@
-import {
-  collection,
-  getDocs,
-  doc,
-  getDoc,
-} from "firebase/firestore";
+import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 import { GAMES_COLLECTION } from "../config/constants";
 import { db } from "../config/firebase";
 import {
@@ -112,11 +107,11 @@ export const extractAndRefineGameData = (id, game) => {
     const startDate = convertTimestampToDate(game.startDate);
     const endDate = convertTimestampToDate(game.endDate);
     const img = game?.img[0]?.downloadURL;
-    const images = game.images.map((image) => image?.downloadURL);
-    const participants = game.participants.sort((a, b) =>
+    const images = game.images?.map((image) => image?.downloadURL);
+    const participants = game.participants?.sort((a, b) =>
       a.cohort > b.cohort ? 1 : -1
     );
-    const result = game.result.sort((a, b) => (a.cohort > b.cohort ? 1 : -1));
+    const result = game.result?.sort((a, b) => (a.cohort > b.cohort ? 1 : -1));
     const status = computeGameStatus(startDate, endDate);
 
     return {
@@ -150,7 +145,7 @@ export const getLeaderboard = async () => {
     const request = await getDocs(collection(db, GAMES_COLLECTION));
     const gamesData = flattenFirebaseData(request);
 
-    // Create a map to store cumulative points and game count for each cohort
+    // Create a map to store cumulative points for each cohort
     const cohortStatsMap = new Map();
 
     // Process each game and participant to calculate cumulative points for each cohort
@@ -159,19 +154,17 @@ export const getLeaderboard = async () => {
         const { point, cohort } = result;
         const cohortStats = cohortStatsMap.get(cohort) || {
           totalPoints: 0,
-          gameCount: 0,
         };
         cohortStats.totalPoints += point;
-        cohortStats.gameCount += 1;
         cohortStatsMap.set(cohort, cohortStats);
       });
     });
-
+ 
     // Calculate average points for each cohort
     const leaderboard = Array.from(cohortStatsMap.entries()).map(
       ([cohort, stats]) => ({
         cohort,
-        averagePoints: stats.totalPoints / stats.gameCount,
+        averagePoints: stats.totalPoints
       })
     );
 

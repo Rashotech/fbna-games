@@ -1,4 +1,5 @@
 import moment from "moment";
+import { GAME_STATUS } from "../config/constants";
 
 /**
  * Flattens an array of Firebase data by extracting the 'data' property from each element.
@@ -15,6 +16,36 @@ export const flattenFirebaseData = (firebaseData) => {
   return array;
 };
 
+export const cn = (...args) => {
+  return args.filter((arg) => Boolean(arg)).join(" ");
+};
+
+/**
+ * Generates an array of specific length for building skeletons
+ *
+ * @param {number} size
+ * @return {Array<number>}
+ */
+export const generateSkeleton = (size) => {
+  return Array.from({ length: size }, (_, k) => k + 1);
+};
+
+export const hasData = (data) => {
+  if (typeof data !== "object ") {
+    return Boolean(data);
+  }
+
+  if (!Array.isArray(data)) {
+    data = Object.keys(data);
+  }
+
+  return Boolean(data?.length);
+};
+
+export const formatCohortName = (cohort) => {
+  return `Cohort ${cohort}`;
+};
+
 /**
  * Computes the status of a game based on its start and end dates.
  *
@@ -28,11 +59,11 @@ export const computeGameStatus = (startDate, endDate) => {
   const _endDate = moment(endDate, "DD-MM-YYYY");
 
   if (currentDate.isBefore(_startDate)) {
-    return "yet-to-start";
+    return GAME_STATUS.NOT_STARTED;
   } else if (currentDate.isAfter(_endDate)) {
-    return "ended";
+    return GAME_STATUS.ENDED;
   } else {
-    return "in-progress";
+    return GAME_STATUS.IN_PROGRESS;
   }
 };
 
@@ -55,7 +86,7 @@ export const convertTimestampToDate = (date) => {
  * @returns {Array<T>} An array of items filtered by date range.
  */
 export const filterItemsByDateRange = (items, startDate, endDate) => {
-  const dateFormat = 'DD-MM-YYYY';
+  const dateFormat = "DD-MM-YYYY";
   const filteredItems = items.filter((item) => {
     const itemStartDate = moment(item.startDate, dateFormat);
     const itemEndDate = moment(item.endDate, dateFormat);
@@ -71,4 +102,40 @@ export const filterItemsByDateRange = (items, startDate, endDate) => {
   });
 
   return filteredItems;
+};
+
+/**
+ * Sort game results in descending order by points
+ *
+ * @typedef Result
+ * @property {string} cohort
+ * @property {number} score
+ * @property {number} point
+ *
+ *
+ * @param {Array<Result>} results
+ */
+export const sortGameResultsByPoints = (results) => {
+  return results
+    .sort((a, b) => b.point - a.point)
+    .map((result, index) => ({
+      ...result,
+      position: addSuffixToNumber(index + 1),
+    }));
+};
+
+const addSuffixToNumber = (number) => {
+  let j = number % 10,
+    k = number % 10;
+  if (j === 1 && k !== 11) {
+    return number + "st";
+  }
+  if (j === 2 && k !== 12) {
+    return number + "nd";
+  }
+  if (j === 3 && k !== 13) {
+    return number + "rd";
+  }
+
+  return number + "th";
 };
