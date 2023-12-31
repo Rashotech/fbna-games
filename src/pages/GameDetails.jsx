@@ -51,7 +51,7 @@ const GameDetails = () => {
       <ScrollToTopOnMount />
       <Container size="w-[90%] md:w-[92%]">
         {isLoading && <GameDetailsSkeleton />}
-        {game && (
+        {hasData(game) && (
           <>
             <GamesInfo
               name={game.name}
@@ -69,6 +69,13 @@ const GameDetails = () => {
             <GameResult results={game.result} className="mt-14" />
             <FeaturedGallery images={game.images} className="mt-[104px]" />
           </>
+        )}
+        {!hasData(games) && (
+          <NotFound
+            message="Games details not found"
+            redirectText="Go back to games"
+            redirectTo="/games"
+          />
         )}
       </Container>
     </div>
