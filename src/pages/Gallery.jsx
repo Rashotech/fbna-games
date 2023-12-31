@@ -15,19 +15,18 @@ const Gallery = () => {
     try {
       setLoading(true);
       const gallery = await getGallery();
-      console.log(gallery);
       const images = chunkArray(gallery, 6);
       setGalleryImages(images);
-      setLoading(false);
     } catch (error) {
-      setLoading(false);
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
       <div className="bg-white">
-        <h2 className="text-center text-4xl font-bold my-14 text_color">
+        <h2 className="text-center text-4xl font-bold py-14 text_color">
           We value every memory created...
         </h2>
         {galleryImages.map((images, index) => (
