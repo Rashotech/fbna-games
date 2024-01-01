@@ -4,6 +4,7 @@ import {
   GameDetails,
   Members,
   LeadershipBoard,
+  SearchResults,
   Gallery
 } from "../pages";
 
@@ -13,5 +14,6 @@ export const publicRoutes = [
   { id: "GameDetails", path: "/games/:id", Component: GameDetails },
   { id: "Members", path: "/members", Component: Members },
   { id: "leaderboard", path: "/leaderboard", Component: LeadershipBoard },
+  { id: "search", path: "/search", Component: SearchResults },
   { id: "Gallery", path: "/gallery", Component: Gallery },
 ];
