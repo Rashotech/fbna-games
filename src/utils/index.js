@@ -54,6 +54,8 @@ export const formatCohortName = (cohort) => {
  * @returns {string} - The game status ("yet-to-start", "in-progress", or "ended").
  */
 export const computeGameStatus = (startDate, endDate) => {
+  if(!startDate || !endDate || startDate === "TBD") return GAME_STATUS.NOT_STARTED; 
+
   const currentDate = moment();
   const _startDate = moment(startDate, "DD-MM-YYYY");
   const _endDate = moment(endDate, "DD-MM-YYYY");
