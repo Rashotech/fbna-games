@@ -150,6 +150,7 @@ export const getLeaderboard = async () => {
 
     // Process each game and participant to calculate cumulative points for each cohort
     gamesData.forEach((game) => {
+      if(!game?.result) return;
       game.result.forEach((result) => {
         const { point, cohort } = result;
         const cohortStats = cohortStatsMap.get(cohort) || {
