@@ -11,7 +11,7 @@ const useSearchText = (initialState) => {
 
   const onSubmit = () => {
     if (searchText.trim().length !== 0) {
-      navigate(`/search?text=${encodeURIComponent(searchText)}`);
+      navigate(`/search?game=${encodeURIComponent(searchText)}`);
       reset();
     }
   };

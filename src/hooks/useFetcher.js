@@ -38,7 +38,7 @@ const reducer = (state, action) => {
 const useFetcher = (
   fetcher,
   fetcherArguments,
-  { initialData = null, initialState = true } = {}
+  { initialData = null, initialState = true, startFetching = true } = {}
 ) => {
   const [{ isLoading, error, data }, dispatch] = useReducer(reducer, {
     ...initialState,
@@ -47,6 +47,10 @@ const useFetcher = (
   });
 
   const fetchData = useCallback(async () => {
+    if (!startFetching) {
+      return;
+    }
+
     try {
       const args = [
         ...(Array.isArray(fetcherArguments)
@@ -61,7 +65,7 @@ const useFetcher = (
         payload: error.message ?? "An error occurred, please try again",
       });
     }
-  }, [fetcher, fetcherArguments]);
+  }, [fetcher, fetcherArguments, startFetching]);
 
   const refetch = useCallback(async () => {
     dispatch({ type: ACTIONS.RESET });
