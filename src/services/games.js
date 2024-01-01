@@ -104,14 +104,14 @@ export const getGamesByDateRange = async (startDate, endDate) => {
  */
 export const extractAndRefineGameData = (id, game) => {
   try {
-    const startDate = convertTimestampToDate(game.startDate);
-    const endDate = convertTimestampToDate(game.endDate);
-    const img = game?.img[0]?.downloadURL;
-    const images = game.images?.map((image) => image?.downloadURL);
-    const participants = game.participants?.sort((a, b) =>
+    const startDate = game?.startDate ? convertTimestampToDate(game.startDate): "TBD";
+    const endDate = game?.endDate ? convertTimestampToDate(game.endDate) : "TBD";
+    const img = game?.img[0]?.downloadURL ?? null;
+    const images = game?.images ? game?.images?.map((image) => image?.downloadURL) : [];
+    const participants = game?.participants ? game.participants?.sort((a, b) =>
       a.cohort > b.cohort ? 1 : -1
-    );
-    const result = game.result?.sort((a, b) => (a.cohort > b.cohort ? 1 : -1));
+    ) : [];
+    const result = game?.result ? game.result?.sort((a, b) => (a.cohort > b.cohort ? 1 : -1)): [];
     const status = computeGameStatus(startDate, endDate);
 
     return {
