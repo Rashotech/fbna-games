@@ -1,5 +1,5 @@
 import React from "react";
-import { HeroSlider, HeroOverlay} from "./index";
+import { HeroSlider, HeroOverlay} from "../index";
 
 function HeroSection() {
   return (

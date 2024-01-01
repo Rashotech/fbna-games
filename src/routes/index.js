@@ -5,6 +5,7 @@ import {
   Members,
   LeadershipBoard,
   SearchResults,
+  Gallery
 } from "../pages";
 
 export const publicRoutes = [
@@ -14,4 +15,5 @@ export const publicRoutes = [
   { id: "Members", path: "/members", Component: Members },
   { id: "leaderboard", path: "/leaderboard", Component: LeadershipBoard },
   { id: "search", path: "/search", Component: SearchResults },
+  { id: "Gallery", path: "/gallery", Component: Gallery },
 ];

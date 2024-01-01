@@ -12,7 +12,7 @@ const LeaderboardCard = ({ name, src, points, position }) => {
           alt=""
           className=" mr-3 rounded-full"
         />
-        <p className="text-herobg font-bold mt-2 text-sm">{name}</p>
+        <p className="text-herobg font-bold mt-2 text-sm">Cohort {name}</p>
       </div>
       <div className="sm:basis-[30%]">
         <img src={src} alt={src} className=" w-[40px] h-[40px]" />
