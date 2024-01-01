@@ -3,6 +3,7 @@ import GameDetailsTitle from "./GamesDetailsTitle";
 import GamesDetailsCard from "./GamesDetailsCard";
 import { TableHead, Table, TableData, TableRow } from "./Table";
 import { cn, formatCohortName } from "../utils";
+import NoTableData from "./Games/NoTableData";
 
 const ParticipantDetails = ({ participants, className }) => {
   return (
@@ -18,21 +19,25 @@ const ParticipantDetails = ({ participants, className }) => {
               <TableHead className="w-2/5 md:w-3/5">Cohort</TableHead>
             </TableRow>
           </thead>
-          <tbody>
-            {participants.map((participant, index) => (
-              <TableRow
-                key={participant.id ?? index}
-                className="even:shadow-md even:bg-secondary/40 md:even:shadow-none text-grey-600"
-              >
-                <TableData className="w-3/5 md:w-2/5">
-                  {participant.name}
-                </TableData>
-                <TableData className="w-2/5 md:w-3/5">
-                  {formatCohortName(participant.cohort)}
-                </TableData>
-              </TableRow>
-            ))}
-          </tbody>
+          {participants.length === 0 ? (
+            <NoTableData />
+          ) : (
+            <tbody>
+              {participants.map((participant, index) => (
+                <TableRow
+                  key={participant.id ?? index}
+                  className="even:shadow-md even:bg-secondary/40 md:even:shadow-none text-grey-600"
+                >
+                  <TableData className="w-3/5 md:w-2/5">
+                    {participant.name}
+                  </TableData>
+                  <TableData className="w-2/5 md:w-3/5">
+                    {formatCohortName(participant.cohort)}
+                  </TableData>
+                </TableRow>
+              ))}
+            </tbody>
+          )}
         </Table>
       </GamesDetailsCard>
     </div>
