@@ -5,7 +5,7 @@ const GalleryCard = ({ images }) => {
   if (!images || images.length == 0) return null;
 
   return (
-    <div className="flex mx-auto w-11/12 justify-start">
+    <div className="flex mx-auto w-11/12 justify-start card_container">
       <div className="flex w-3/4  flex-wrap justify-end">
         {images[0] && (
           <div class="small_image overflow-hidden">
