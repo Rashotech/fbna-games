@@ -168,13 +168,7 @@
 }
 
 @media(max-width: 768px) {
-  body {
-    background-color: green;
-  }
-
   .side_long_image {
-   display: none;
-   }
-
-
+    display: none;
+  }
 }
