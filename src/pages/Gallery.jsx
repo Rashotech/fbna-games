@@ -32,7 +32,7 @@ const Gallery = () => {
 
   return (
     <div className="bg-white">
-      <h2 className="text-center text-4xl font-bold my-14 text_color">
+      <h2 className="text-center text-4xl font-bold py-14 text_color">
         We value every memory created...
       </h2>
       {galleryImages.map((images, index) => (
