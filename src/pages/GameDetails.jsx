@@ -63,9 +63,11 @@ const GameDetails = () => {
             <ParticipantDetails
               participants={game.participants}
               className="mt-14"
-            /> 
+            />
             <GameResult results={game.result} className="mt-14" />
-           {game?.images && game.images.length !== 0 && <FeaturedGallery images={game.images} className="mt-[104px]" />}
+            {game?.images && game.images.length !== 0 && (
+              <FeaturedGallery images={game.images} className="mt-[104px]" />
+            )}
           </>
         )}
         {!hasData(games) && (
