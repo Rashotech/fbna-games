@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const TeamCard = ({ member }) => {
   return (
     //  md:h-1/2 lg:h-3/4 xl:h-full
-    <div className=" mb-4 md:w-1/2 lg:w-1/3 xl:w-1/4 p-4">
+    <div className="md:w-1/2 lg:w-1/3 xl:w-1/4 p-4">
       <img
         className="object-cover h-80 w-64 rounded-t-xl"
         src={member.image}
