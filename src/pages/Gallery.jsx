@@ -15,7 +15,6 @@ const Gallery = () => {
     try {
       setLoading(true);
       const gallery = await getGallery();
-      console.log(gallery);
       const images = chunkArray(gallery, 6);
       setGalleryImages(images);
       setLoading(false);
