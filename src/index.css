@@ -143,3 +143,47 @@ margin:0 0 14px 10px;
   border-radius: 20px;
   overflow: hidden;
 }
+
+/* ===============large  ==> small screen responsivesness ================ */
+@media (max-width: 1024px) {
+
+ .small_image {
+  margin: 10px 12px;
+ }
+
+ .bottom_long_image {
+  width:  310px;
+ }
+
+
+ .side_long_image {
+  width:  310px;
+ }
+
+ .card_container {
+  justify-content: center;
+  padding-right: 10%;
+ }
+
+ .bottom_long_image:hover,
+.bottom_corner_image:hover,
+.side_long_image:hover,
+.small_image:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease-in-out; 
+  border-radius: 20px;
+  overflow: hidden;
+}
+}
+
+@media(max-width: 768px) {
+  body {
+    background-color: green;
+  }
+
+  .side_long_image {
+   display: none;
+   }
+
+
+}
