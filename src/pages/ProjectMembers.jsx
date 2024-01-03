@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 import { getProjectMembers } from "../services/teams";
 import TeamCard from "../components/TeamCard";
@@ -25,9 +26,11 @@ const ProjectMembers = () => {
       <p className="font-bold text-blue-900 text-4xl py-8 text-center">
         Meet the Team...
       </p>
-      <div className="flex flex-wrap justify-center gap-20 items-center font-bold">
+      <div className="flex flex-wrap justify-center gap-8 items-center font-bold">
         {isLoading && <GameCardSkeletonList />}
-        {!isLoading && teamMembers.length === 0 && <NotFound message="No Team Members found" />}
+        {!isLoading && teamMembers.length === 0 && (
+          <NotFound message="No Team Members found" />
+        )}
         {teamMembers.map((member) => (
           <TeamCard key={member.id} member={member} />
         ))}

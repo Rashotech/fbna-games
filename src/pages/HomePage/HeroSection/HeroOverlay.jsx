@@ -14,11 +14,7 @@ const HeroOverlay = () => {
         Welcome To FirstAcademy Games
       </h1>
       <p className="max-w-[725px] text-white text-sm mb-3 sm:mb-6 leading-7 sm:w-[70%] sm:text-md lg:text-lg lg:w-[64%]">
-        Visby is a geometric typeface that was influenced by the Arctic's stark
-        elegance a nd crisp air. In lowercase, it's friendly and charismatic; in
-        uppercase, it's elegant and authoritative. Humanist nuances bring warmth
-        to the design, which combines hard lines and sharp corners with sleek,
-        rounded letterforms.
+        Are you ready to challenge yourself and have fun at the same time? Join us at FirstAcademy Games, where you can play exciting games, compete with your peers, and learn new skills. Whether you are interested in sports, puzzles, or trivia, we have something for you.
       </p>
       <IconButton
         text={"Explore the Games"}

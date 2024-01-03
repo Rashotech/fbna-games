@@ -14,14 +14,7 @@ const About = () => {
         About FirstGames
       </h2>
       <p className="max-w-[725px] mx-auto text-paragraphbg text-sm mb-6 leading-7 sm:w-[70%] sm:text-md sm:mb-10 lg:text-lg lg:w-[64%]">
-        Visby is a geometric typeface that was influenced by the Arctic's stark
-        elegance a nd crisp air. In lowercase, it's friendly and charismatic; in
-        uppercase, it's elegant and authoritative. Humanist nuances bring warmth
-        to the design, which combines hard.Visby is a geometric typeface that
-        was influenced by the Arctic's stark elegance a nd crisp air. In
-        lowercase, it's friendly and charismatic; in uppercase, it's elegant and
-        authoritative. Humanist nuances bring warmth to the design, which
-        combines hard.
+        FirstGames combines gamification, education, and social interaction to stimulate your creativity, curiosity, and critical thinking, while learning at FirstAcademy. Remember, “All work and no play…” 😉 You just said it yourself!  
       </p>
       <div className="max-w-[210px] mx-auto">
         <IconButton
