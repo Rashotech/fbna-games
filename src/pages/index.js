@@ -5,3 +5,4 @@ export { default as Members } from "./ProjectMembers";
 export { default as LeadershipBoard } from "./LeadershipBoard/LeadershipBoard";
 export { default as SearchResults } from "./SearchResults";
 export { default as Gallery } from "./Gallery";
+export { default as NotFound } from "./NotFound";

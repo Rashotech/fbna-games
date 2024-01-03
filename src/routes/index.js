@@ -5,7 +5,8 @@ import {
   Members,
   LeadershipBoard,
   SearchResults,
-  Gallery
+  Gallery,
+  NotFound,
 } from "../pages";
 
 export const publicRoutes = [
@@ -16,4 +17,5 @@ export const publicRoutes = [
   { id: "leaderboard", path: "/leaderboard", Component: LeadershipBoard },
   { id: "search", path: "/search", Component: SearchResults },
   { id: "Gallery", path: "/gallery", Component: Gallery },
+  { id: "Not-Found", path: "*", Component: NotFound },
 ];
