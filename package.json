@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource-variable/nunito": "^5.0.17",
+    "@fontsource-variable/rubik": "^5.0.20",
+    "@fontsource/carter-one": "^5.0.8",
     "firebase": "^10.7.1",
     "moment": "^2.30.1",
     "react": "^18.2.0",
