@@ -7,6 +7,11 @@ import useSearchText from "../hooks/useSearchText";
 const MobileNavMenuLinks = ({ className, links, onClose, ...props }) => {
   const { searchText, onChange, onSubmit } = useSearchText();
 
+  const handleSubmit = () => {
+    onSubmit();
+    onClose();
+  };
+
   return (
     <div
       className={cn(
@@ -19,7 +24,7 @@ const MobileNavMenuLinks = ({ className, links, onClose, ...props }) => {
         <SearchBox
           value={searchText}
           onChange={onChange}
-          onSubmit={onSubmit}
+          onSubmit={handleSubmit}
           placeholder="Search for games & competition"
           className="h-10 py-[13px] pr-[50px] pl-[22px] flex items-center w-full"
         />
