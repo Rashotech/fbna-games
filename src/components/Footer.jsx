@@ -10,11 +10,11 @@ import SocialLink from "./SocialLink";
 import useSearchText from "../hooks/useSearchText";
 
 const socials = [
-  { href: "", Icon: FacebookIcon },
-  { href: "", Icon: YoutubeIcon },
-  { href: "", Icon: TwitterIcon },
-  { href: "", Icon: LinkedInIcon },
-  { href: "", Icon: InstagramIcon },
+  { href: "https://www.facebook.com/firstbankofnigeria", Icon: FacebookIcon },
+  { href: "https://www.youtube.com/user/firstbankngr", Icon: YoutubeIcon },
+  { href: "https://twitter.com/firstbankngr", Icon: TwitterIcon },
+  { href: "https://www.linkedin.com/company/first-bank-of-nigeria-ltd/", Icon: LinkedInIcon },
+  { href: "http://instagram.com/firstbanknigeria", Icon: InstagramIcon },
 ];
 
 const Footer = () => {

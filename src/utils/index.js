@@ -30,16 +30,14 @@ export const generateSkeleton = (size) => {
   return Array.from({ length: size }, (_, k) => k + 1);
 };
 
+export const isEmptyArray = (data) => {
+  if (!Array.isArray(data)) return true;
+
+  return data.length === 0;
+};
+
 export const hasData = (data) => {
-  if (typeof data !== "object ") {
-    return Boolean(data);
-  }
-
-  if (!Array.isArray(data)) {
-    data = Object.keys(data);
-  }
-
-  return Boolean(data?.length);
+  return Boolean(data);
 };
 
 export const formatCohortName = (cohort) => {
@@ -54,7 +52,8 @@ export const formatCohortName = (cohort) => {
  * @returns {string} - The game status ("yet-to-start", "in-progress", or "ended").
  */
 export const computeGameStatus = (startDate, endDate) => {
-  if(!startDate || !endDate || startDate === "TBD") return GAME_STATUS.NOT_STARTED; 
+  if (!startDate || !endDate || startDate === "TBD")
+    return GAME_STATUS.NOT_STARTED;
 
   const currentDate = moment();
   const _startDate = moment(startDate, "DD-MM-YYYY");
@@ -106,15 +105,6 @@ export const filterItemsByDateRange = (items, startDate, endDate) => {
   return filteredItems;
 };
 
-
-export const chunkArray = (array, chunkSize) => {
-  const resultArray = [];
-  for (let i = 0; i < array.length; i += chunkSize) {
-    resultArray.push(array.slice(i, i + chunkSize));
-  }
-  return resultArray;
-}
-
 /**
  * Sort game results in descending order by points
  *
@@ -149,4 +139,12 @@ const addSuffixToNumber = (number) => {
   }
 
   return number + "th";
+};
+
+export const chunkArray = (array, chunkSize) => {
+  const resultArray = [];
+  for (let i = 0; i < array.length; i += chunkSize) {
+    resultArray.push(array.slice(i, i + chunkSize));
+  }
+  return resultArray;
 };

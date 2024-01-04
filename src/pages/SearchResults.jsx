@@ -6,6 +6,7 @@ import SearchResults from "../components/SearchResults";
 import FetchError from "../components/FetchError";
 import useFetcher from "../hooks/useFetcher";
 import { getAllGames } from "../services/games";
+import { isEmptyArray } from "../utils";
 
 const SearchResultsPage = () => {
   const [searchParams] = useSearchParams();
@@ -40,10 +41,10 @@ const SearchResultsPage = () => {
   return (
     <div className="bg-white min-h-[50vh] pt-10 pb-14 md:pt-[72px]">
       <Container size="w-[90%] md:w-[92%]" className="space-y-10 md:space-y-20">
-        {Array.isArray(filteredGames) && filteredGames.length === 0 && (
+        {isEmptyArray(filteredGames) && (
           <SearchResultTitle>No Results found</SearchResultTitle>
         )}
-        {Array.isArray(filteredGames) && filteredGames.length > 0 && (
+        {!isEmptyArray(filteredGames) && (
           <SearchResultTitle>Search Results</SearchResultTitle>
         )}
         {filteredGames && <SearchResults filteredGames={filteredGames} />}

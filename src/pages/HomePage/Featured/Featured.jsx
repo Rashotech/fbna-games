@@ -41,7 +41,7 @@ const Featured = () => {
       {hasData(data) && (
         <div className="w-[100%]">
           <div className="w-full mx-auto flex justify-center flex-wrap gap-4 md:w-[87%] lg:w-full lg:gap-3 xl:gap-6">
-            {data.map(rep => {
+            {data.map((rep) => {
               return (
                 <>
                   <FeaturedCard
@@ -56,7 +56,7 @@ const Featured = () => {
           </div>
         </div>
       )}
-      <h4 className="max-w-[500px] mx-auto text-center text-herobg text-3xl font-bold my-20">
+      <h4 className="max-w-[500px] mx-auto text-center text-herobg text-3xl font-normal my-20 font-carter">
         Remember it is not over until it's over!
       </h4>
     </div>

@@ -13,7 +13,7 @@ const GamesCard = ({
   status,
 }) => {
   return (
-    <div className="flex flex-col w-full min-h-[433px] h-auto max-h-[480px] rounded-lg border shadow-md border-gray-400/15 shadow-black/30 md:w-[302px]">
+    <div className="flex flex-col w-full min-h-[433px] h-auto max-h-[480px] rounded-lg border shadow-md border-gray-400/15 shadow-black/30 md:w-[302px] font-nunito">
       <img
         src={image}
         alt={name}

@@ -32,6 +32,11 @@ export default {
           600: "#4A4A4A",
         },
       },
+      fontFamily: {
+        sans: ['"Rubik Variable"', ...defaultTheme.fontFamily.sans],
+        nunito: ['"Nunito Variable"', ...defaultTheme.fontFamily.sans],
+        carter: ['"Carter One"', ...defaultTheme.fontFamily.sans],
+      },
     },
     keyframes: {
       shimmer: {
