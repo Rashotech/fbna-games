@@ -148,3 +148,20 @@ export const chunkArray = (array, chunkSize) => {
   }
   return resultArray;
 };
+
+/**
+ * Get a random subset of games from the provided array.
+ * @param {Array<Game>} gamesArray - The array of games to select from.
+ * @param {number} count - The number of random games to select.
+ * @returns {Array<Game>} An array containing the randomly selected games.
+ */
+export const getRandomGames = (gamesArray, count) => {
+  const randomGames = [];
+
+  while (randomGames.length < count && gamesArray.length > 0) {
+    const randomIndex = Math.floor(Math.random() * gamesArray.length);
+    randomGames.push(gamesArray.splice(randomIndex, 1)[0]);
+  }
+
+  return randomGames;
+};

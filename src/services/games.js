@@ -6,6 +6,7 @@ import {
   convertTimestampToDate,
   filterItemsByDateRange,
   flattenFirebaseData,
+  getRandomGames,
 } from "../utils";
 
 /**
@@ -61,7 +62,16 @@ export const getSingleGame = async (id) => {
 export const getGamesByDateRange = async (startDate, endDate) => {
   try {
     const games = await getAllGames();
-    const filteredGames = filterItemsByDateRange(games, startDate, endDate);
+    let  filteredGames = filterItemsByDateRange(games, startDate, endDate);
+
+    if (filteredGames.length === 0) {
+      // If no games match the date range, select 3 random games without a start date
+      const gamesWithoutStartDate = games.filter(game => game.startDate === "TBD");
+      const randomGames = getRandomGames(gamesWithoutStartDate, 3);
+
+      filteredGames = randomGames;
+    }
+
     return filteredGames;
   } catch (error) {
     console.error(error);
