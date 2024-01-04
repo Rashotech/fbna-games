@@ -1,12 +1,8 @@
 import React, { useMemo, useEffect, useState } from "react";
 import SportDay from "./SportDay";
 import Games from "./Games";
-// import useFetcher from "../../../hooks/useFetcher";
 import { generateDates } from "../../../hooks/getStartAndEndDate";
 import { getGamesByDateRange } from "../../../services/games";
-// import { hasData } from "../../../utils";
-// import FetchError from "../../../components/FetchError";
-// import NotFound from "../../../components/NotFound";
 
 const Upcoming = () => {
   const [data, setData] = useState({
@@ -18,7 +14,7 @@ const Upcoming = () => {
   useEffect(() => {
     const today = new Date();
     const { start, end } = generateDates(today, 7);
-    let args = ["10-12-2023", "23-12-2023"];
+    let args = [start, end];
 
     const queryData = async () => {
       try {
