@@ -177,13 +177,29 @@ margin:0 0 14px 10px;
 }
 
 @media(max-width: 768px) {
-  body {
-    background-color: green;
-  }
 
   .side_long_image {
    display: none;
    }
 
+.card_container{
+  padding: 0;
+}
 
+.images_grid{
+
+ width:420px;
+ 
+}
+
+.bottom_long_image,
+.bottom_corner_image,
+.small_image {
+    width:  380px;
+
+}
+
+.btn_container{
+  padding-left: 20px;
+}
 }

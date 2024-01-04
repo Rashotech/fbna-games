@@ -38,9 +38,9 @@ const Gallery = () => {
         <GalleryCard key={index} images={images} />
       ))}
 
-      <div className="max-w-[210px] mx-auto">
+      <div className="max-w-[150px] btn_container mx-auto">
         <button
-          className="px-4 py-2 rounded-md my-10 bg-btnbg focus:outline-none transition-colors hover:bg-primary hover:text-white"
+          className="px-4 py-2 rounded-md mx-auto my-10 bg-btnbg focus:outline-none transition-colors hover:bg-primary hover:text-white"
           onClick={redirectToGallery}
         >
           See more
